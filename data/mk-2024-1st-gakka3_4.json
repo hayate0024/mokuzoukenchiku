@@ -1,0 +1,479 @@
+{
+  "year": 2024,
+  "subject": "学科III・学科IV",
+  "subjectCode": "gakka3_4",
+  "totalQuestions": 50,
+  "subjects": [
+    {
+      "name": "学科III（建築構造）",
+      "questionRange": [
+        1,
+        25
+      ]
+    },
+    {
+      "name": "学科IV（建築施工）",
+      "questionRange": [
+        26,
+        50
+      ]
+    }
+  ],
+  "passingScores": {
+    "III": 13,
+    "IV": 13,
+    "total": 60
+  },
+  "questions": [
+    {
+      "number": 1,
+      "page": 1,
+      "answer": 1,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 2,
+      "page": 1,
+      "answer": 4,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 3,
+      "page": 1,
+      "answer": 3,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 4,
+      "page": 2,
+      "answer": 2,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 5,
+      "page": 2,
+      "answer": 5,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 6,
+      "page": 2,
+      "answer": 3,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 7,
+      "page": 3,
+      "answer": 4,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 8,
+      "page": 3,
+      "answer": 5,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 9,
+      "page": 3,
+      "answer": 3,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 10,
+      "page": 4,
+      "answer": 3,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 11,
+      "page": 4,
+      "answer": 4,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 12,
+      "page": 4,
+      "answer": 1,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 13,
+      "page": 5,
+      "answer": 2,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 14,
+      "page": 5,
+      "answer": 1,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 15,
+      "page": 5,
+      "answer": 2,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 16,
+      "page": 6,
+      "answer": 4,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 17,
+      "page": 6,
+      "answer": 5,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 18,
+      "page": 6,
+      "answer": 3,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 19,
+      "page": 7,
+      "answer": 3,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 20,
+      "page": 7,
+      "answer": 5,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 21,
+      "page": 7,
+      "answer": 1,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 22,
+      "page": 8,
+      "answer": 2,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 23,
+      "page": 8,
+      "answer": 1,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 24,
+      "page": 8,
+      "answer": 5,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 25,
+      "page": 9,
+      "answer": 5,
+      "choices": 5,
+      "category": "建築構造",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 26,
+      "page": 9,
+      "answer": 3,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 27,
+      "page": 9,
+      "answer": 1,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 28,
+      "page": 10,
+      "answer": 3,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 29,
+      "page": 10,
+      "answer": 4,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 30,
+      "page": 10,
+      "answer": 4,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 31,
+      "page": 11,
+      "answer": 4,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 32,
+      "page": 11,
+      "answer": 2,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 33,
+      "page": 11,
+      "answer": 3,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 34,
+      "page": 12,
+      "answer": 4,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 35,
+      "page": 12,
+      "answer": 1,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 36,
+      "page": 12,
+      "answer": 2,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 37,
+      "page": 13,
+      "answer": 5,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 38,
+      "page": 13,
+      "answer": 4,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 39,
+      "page": 13,
+      "answer": 3,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 40,
+      "page": 14,
+      "answer": 5,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 41,
+      "page": 14,
+      "answer": 5,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 42,
+      "page": 14,
+      "answer": 1,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 43,
+      "page": 15,
+      "answer": 3,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 44,
+      "page": 15,
+      "answer": 2,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 45,
+      "page": 15,
+      "answer": 1,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 46,
+      "page": 16,
+      "answer": 2,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 47,
+      "page": 16,
+      "answer": 4,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 48,
+      "page": 16,
+      "answer": 5,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 49,
+      "page": 17,
+      "answer": 1,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    },
+    {
+      "number": 50,
+      "page": 17,
+      "answer": 5,
+      "choices": 5,
+      "category": "建築施工",
+      "explanation": "",
+      "relatedLaws": []
+    }
+  ]
+}

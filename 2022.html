@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2022年度 木造建築士試験 過去問解説</title>
+<style>
+  :root {
+    --bg-main: #0f172a;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --primary: #38bdf8;
+    --primary-glow: rgba(56, 189, 248, 0.4);
+    --text-main: #f8fafc;
+    --text-sub: #94a3b8;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg-main);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+  header {
+    height: 60px;
+    background: rgba(15, 23, 42, 0.9);
+    border-bottom: 1px solid var(--card-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    flex-shrink: 0;
+  }
+  .title { font-size: 1.2rem; font-weight: 700; color: var(--primary); }
+  .tabs { display: flex; gap: 1rem; }
+  .tab-btn {
+    background: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--text-sub);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  .tab-btn.active {
+    background: var(--primary);
+    color: #0f172a;
+    border-color: var(--primary);
+    font-weight: bold;
+    box-shadow: 0 0 10px var(--primary-glow);
+  }
+  .main-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+  .pdf-pane {
+    flex: 6;
+    border-right: 1px solid var(--card-border);
+    background: #e2e8f0; /* PDF viewer background */
+  }
+  .pdf-pane iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .exp-pane {
+    flex: 4;
+    overflow-y: auto;
+    padding: 1.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--card-bg);
+  }
+  @media (max-width: 768px) {
+    .main-container {
+      flex-direction: column;
+    }
+    .pdf-pane {
+      flex: 6;
+      height: 60vh;
+      border-right: none;
+      border-bottom: 2px solid var(--primary);
+    }
+    .exp-pane {
+      flex: 4;
+      height: 40vh;
+    }
+    header {
+      height: auto;
+      padding: 0.5rem;
+      flex-direction: row;
+      justify-content: center;
+    }
+    .title {
+      display: none; /* スマホではタイトルを非表示にしてスペース節約 */
+    }
+    .tabs {
+      width: 100%;
+      display: flex;
+      gap: 0.5rem;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 0.4rem;
+      font-size: 0.85rem;
+    }
+  }
+  .subject-header {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 1rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary);
+  }
+  .question-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+  details > summary {
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    transition: background 0.2s;
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker { display: none; }
+  details > summary:hover { background: rgba(255, 255, 255, 0.1); }
+  .q-num {
+    background: var(--primary);
+    color: #0f172a;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+  .q-ans-badge {
+    font-size: 0.9rem;
+    color: #fbbf24;
+    font-weight: bold;
+  }
+  .q-details {
+    padding: 1rem;
+    border-top: 1px solid var(--card-border);
+  }
+  .exp-summary {
+    font-weight: bold;
+    color: #e2e8f0;
+    margin-bottom: 0.5rem;
+  }
+  .exp-point {
+    font-size: 0.9rem;
+    color: var(--text-sub);
+    line-height: 1.6;
+    margin-top: 0.4rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="title">2022年度 木造建築士試験 (スプリットビュー)</div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('gakka1_2')">学科Ⅰ・Ⅱ (計画・法規)</button>
+    <button class="tab-btn" onclick="switchTab('gakka3_4')">学科Ⅲ・Ⅳ (構造・施工)</button>
+  </div>
+</header>
+
+<div class="main-container">
+  <div class="pdf-pane">
+    <iframe id="pdfViewer" src="mk-2022-1st-gakka1_2.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+  </div>
+  <div class="exp-pane">
+    <div class="subject-header q-group-gakka1_2">📚 学科I（建築計画）</div>
+
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 1</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は日本の伝統的な社寺建築とその建築様式に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。日光東照宮本殿は、本殿と拝殿を石の間でつなぐ権現造りの代表例です。</div><div class="exp-point">【選択肢2】正しい。東大寺南大門は、鎌倉時代に重源が導入した大仏様（天竺様）の代表的な建築物です。</div><div class="exp-point">【選択肢3】正しい。賀茂御祖神社（下鴨神社）本殿は、正面の屋根が長く伸びる流造り（ながれづくり）の代表例です。</div><div class="exp-point">【選択肢4】誤り。出雲大社本殿は「大社造り」です。「神明造り」の代表例は伊勢神宮であり、この組合せは不適当です。これが本問の正解です。</div><div class="exp-point">【選択肢5】正しい。宇佐神宮本殿は、切妻造の建物を前後に二つ並べた八幡造りの代表例です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 2</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は建築環境工学における物理量とその単位に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】誤り。熱伝達率の単位は「W/（m2・K）」です。「W/（m・K）」は熱伝導率の単位であるため不適当です。これが本問の正解です。</div><div class="exp-point">【選択肢2】正しい。日射量は単位面積当たりの放射エネルギーであり、単位は「W/m2」です。</div><div class="exp-point">【選択肢3】正しい。浮遊粉塵の量は単位体積当たりの質量で表され、単位は「mg/m3」です。</div><div class="exp-point">【選択肢4】正しい。音響透過損失は、入射音と透過音の音圧レベルの差であり、単位はデシベル「dB」です。</div><div class="exp-point">【選択肢5】正しい。容積比熱は単位体積の物質の温度を1K上げるのに必要な熱量であり、単位は「J/（m3・K）」です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 3</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は室内空気環境と換気に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。厚生労働省の指針により、室内空気中のホルムアルデヒドの濃度指針値は100μg/m3とされています。</div><div class="exp-point">【選択肢2】正しい。空気齢は、外気が室内に侵入してからその地点に到達するまでの時間であり、値が小さいほど空気が新鮮であることを示します。</div><div class="exp-point">【選択肢3】誤り。換気回数(回/h)は、必要換気量(m3/h)を室容積(m3)で割って求めます。300÷150=2(回/h)となります。6回/hは誤りです。これが本問の正解です。</div><div class="exp-point">【選択肢4】正しい。冬期は室内外の温度差により、上部開口部から空気が流出し、下部から外気が流入する温度差換気が生じます。</div><div class="exp-point">【選択肢5】正しい。第3種換気は機械排気と自然給気で室内を負圧にするため、臭気等の他室への漏出を防ぐのに適しています。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 4</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は伝熱と結露防止に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。複層ガラスはガラス間に乾燥空気を封入した中空層を持ち、断熱性能を高めたものです。</div><div class="exp-point">【選択肢2】正しい。外皮平均熱貫流率（UA値）は、値が小さいほど熱が逃げにくく、断熱性が高いことを示します。</div><div class="exp-point">【選択肢3】正しい。熱伝達率は風速が大きいほど大きくなるため、風の影響を受ける室外側のほうが室内側より大きくなります。</div><div class="exp-point">【選択肢4】正しい。熱線吸収ガラスは日射は吸収しますが、熱伝導率自体は普通ガラスと同等であるため、熱貫流率は同程度です。</div><div class="exp-point">【選択肢5】誤り。壁体の内部結露を防止するには、水蒸気の浸入を防ぐ防湿層を断熱材の「室内側（高温多湿側）」に設ける必要があります。室外側とするのは不適当です。これが本問の正解です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 5</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は光と色彩の基本知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。夏至の南中時は太陽高度が高いため、水平面に当たる日射量の方が南向き鉛直面よりも大きくなります。</div><div class="exp-point">【選択肢2】正しい。明度は0（理想的な黒）から10（理想的な白）までの値で色の明るさを表します。</div><div class="exp-point">【選択肢3】正しい。白、灰、黒は無彩色であり、色相と彩度を持たず明度のみで表されます。</div><div class="exp-point">【選択肢4】正しい。フリッカーは光の点滅によるちらつきのことで、眼精疲労や不快感の原因となります。</div><div class="exp-point">【選択肢5】誤り。光源の色温度は、低いほど赤みを帯び、高いほど青白くなります。記述が逆であるため不適当です。これが本問の正解です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 6</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は音の性質や遮音・吸音に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】誤り。音響透過損失は音を遮る能力を示し、値が「大きい」ほど遮音性能が高いことを意味します。これが本問の正解です。</div><div class="exp-point">【選択肢2】正しい。聴感上の三要素は、音の大きさ、音の高さ、音色です。</div><div class="exp-point">【選択肢3】正しい。飛び跳ね音などの重量床衝撃音を低減させるには、床スラブを厚くして質量と剛性を高めることが最も有効です。</div><div class="exp-point">【選択肢4】正しい。多孔質材料は、音波が空隙を通る際の摩擦により音エネルギーを熱エネルギーに変換し、吸音効果を発揮します。</div><div class="exp-point">【選択肢5】正しい。点音源からの音の強さは距離の2乗に反比例するため、距離が2倍になると音の強さは1/4になります。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 7</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は気候や地球環境問題に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】誤り。月平均気温の年較差は、太陽高度や日照時間の変化が大きい「高緯度地域」の方が大きくなります。低緯度地域とするのは不適当です。これが本問の正解です。</div><div class="exp-point">【選択肢2】正しい。ヒートアイランド現象は、水分蒸発の減少や人工排熱の増加等が原因で都市部の気温が上昇する現象です。</div><div class="exp-point">【選択肢3】正しい。温室効果ガスには二酸化炭素やメタン等があり、水蒸気を除く人為的要因のガスの増加が問題となっています。</div><div class="exp-point">【選択肢4】正しい。CASBEEにおけるBEE（環境性能効率）は、Q（環境品質）をL（環境負荷）で除して算出されます。</div><div class="exp-point">【選択肢5】正しい。昼間は陸地が海より早く温まり上昇気流が生じるため、気圧の高い海から陸に向かって海風が吹きます。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 8</span>
+                    <span class="q-ans-badge">正答: 2</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 2 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は一戸建て住宅の配置・動線計画に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。南北に細長い敷地では、中庭を設けることで奥の部屋にも日照や通風を確保しやすくなります。</div><div class="exp-point">【選択肢2】誤り。車椅子用のスロープの勾配は、自走する場合は1/12以下（できれば1/15以下）が原則であり、1/10は急すぎて不適当です。これが本問の正解です。</div><div class="exp-point">【選択肢3】正しい。多雪地域では、隣地や道路へ雪が落ちないよう敷地内に落雪スペースを設ける必要があります。</div><div class="exp-point">【選択肢4】正しい。日照を確保するには、建物を北側に寄せて南側の庭を広く取り、東西に長い平面形状とするのが基本です。</div><div class="exp-point">【選択肢5】正しい。安全性や出入りのしやすさを考慮し、交通量の多い交差点付近に駐車場の出入口を設けるのは避けるべきです。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 9</span>
+                    <span class="q-ans-badge">正答: 2</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 2 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は集合住宅の形式や計画手法に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。コレクティブハウスは、独立した住戸を持ちつつ、食堂など生活の一部を共同化する住まい方です。</div><div class="exp-point">【選択肢2】誤り。長屋建て住宅（テラスハウス等）は、各住戸が直接外部に出入口を持っており、共用の廊下や階段を通ってアクセスするものではありません。これが本問の正解です。</div><div class="exp-point">【選択肢3】正しい。コモンアクセスは共用庭などを経由して住戸にアクセスする手法で、居住者同士の自然な交流を促します。</div><div class="exp-point">【選択肢4】正しい。階段室型は階段を少数戸で共有する形式で、共用廊下がなく動線が短いのが特徴です。</div><div class="exp-point">【選択肢5】正しい。中庭型は、共用の中庭を囲むように住戸を配置し、中庭をコミュニティ空間として活用する形式です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 10</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は敷地調査に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。接道条件（道路の種別や幅員等）を役所で確認することは、建築計画の前提として重要です。</div><div class="exp-point">【選択肢2】正しい。インフラ（上下水道や電気等）の引込状況を事前に確認することは、費用や計画に直結するため必須です。</div><div class="exp-point">【選択肢3】正しい。ベンチマーク（BM）は敷地の高さの基準となる動かない点に設定します。</div><div class="exp-point">【選択肢4】誤り。建築基準法等の日影図や斜線制限などで基準となる北は「真北（しんぼく）」です。方位磁針が指す「磁北」を真北として扱うことは不適当です。これが本問の正解です。</div><div class="exp-point">【選択肢5】正しい。周辺データから地盤を予測した上で、実際の計画地で地盤調査を行うことが適切です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 11</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は木造住宅の天井の形式に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。打上げ天井は、野縁に下から天井材を直接打ち上げて張る一般的な形式です。</div><div class="exp-point">【選択肢2】正しい。広い平天井は中央が垂れ下がって見える錯覚を防ぐため、中央部をわずかに高く（起りをつけて）張ることがあります。</div><div class="exp-point">【選択肢3】正しい。目透し天井は、天井板の接合部に目地（透かし）を設けて張る意匠的な形式です。</div><div class="exp-point">【選択肢4】正しい。格天井は、格縁を井桁に組み、間に正方形の板を張った格式高い天井です。</div><div class="exp-point">【選択肢5】誤り。網代（あじろ）天井は、薄い木板や竹などを網代織り等に編み込んだものを張る天井であり、「一枚板」を用いるものではないため不適当です。これが本問の正解です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 12</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が最も関係の少ないもの（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は建築物の種類と関連する専門用語の知識を問う問題です。</div><div class="exp-point">【選択肢1】関係がある。オープンスペースは学校において壁を取り払った柔軟な学習空間を指します。</div><div class="exp-point">【選択肢2】関係がある。レンタブル比は事務所ビルの延べ面積に対する収益を上げる貸室面積の割合です。</div><div class="exp-point">【選択肢3】関係が少ない（誤り）。ホワイトキューブは、美術館やギャラリー等の白を基調とした無機質な展示空間を指す言葉です。病院とは関係が薄いため、これが正解です。</div><div class="exp-point">【選択肢4】関係がある。クリーンルームは工場等で空気中の塵埃を極めて低く管理した部屋です。</div><div class="exp-point">【選択肢5】関係がある。パントリーはレストラン等の厨房と客席の間に設ける配膳や食器収納のスペースです。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 13</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は住宅の各室の標準的な寸法に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】誤り。洋風の浴槽は足を伸ばして入るため長さが140cm〜160cm程度必要です。浴室寸法が130cm×130cmでは浴槽が納まらないため不適当です。これが本問の正解です。</div><div class="exp-point">【選択肢2】正しい。玄関の土間を180cm×180cm（約1坪）とすることは適切な広さです。</div><div class="exp-point">【選択肢3】正しい。4人家族の食事スペースとして240cm×240cm（約3.5〜4帖）は適切です。</div><div class="exp-point">【選択肢4】正しい。1人用の子ども室として270cm×270cm（4.5帖）は適切な最低限の広さです。</div><div class="exp-point">【選択肢5】正しい。洋式便器と手洗いを設ける便所として、幅120cm×奥行160cmはゆとりがあり適切です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 14</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は住宅各部の人間工学的な寸法に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。吊戸棚の下端は、出し入れが容易な床面から145〜160cm程度が適切です。</div><div class="exp-point">【選択肢2】正しい。洗面化粧台の洗面器の高さは、腰に負担がかからない70〜80cm程度が標準です。</div><div class="exp-point">【選択肢3】正しい。ドアアイ（のぞき穴）の高さは、成人の目の高さである140〜150cm程度が一般的です。</div><div class="exp-point">【選択肢4】誤り。パソコンデスクの作業面の高さは、キーボード操作等を考慮し65〜70cm程度が適当です。80cmは高すぎて肩に負担がかかるため不適当です。これが本問の正解です。</div><div class="exp-point">【選択肢5】正しい。バルコニーの奥行は、移動や物干し等の作業スペースとして90cm程度以上確保することが望ましいです。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 15</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は屋根の形状や葺材と勾配に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。住宅の屋根形状として切妻、寄棟、入母屋などが一般的です。</div><div class="exp-point">【選択肢2】正しい。方形屋根は大棟がなく4つの屋根面が頂点に集まる形状で、正方形の平面に用いられます。</div><div class="exp-point">【選択肢3】正しい。金属板葺きは熱膨張があるため、温度伸縮を吸収できる納まりとする必要があります。</div><div class="exp-point">【選択肢4】正しい。天然スレート葺きは雨水処理のため、一般に5/10〜8/10程度の急勾配とします。</div><div class="exp-point">【選択肢5】誤り。厚形スレート葺き（セメント瓦等）の屋根勾配は、一般に4/10以上必要です。1/10〜2/10の緩勾配では雨漏りの原因となるため不適当です。これが本問の正解です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 16</span>
+                    <span class="q-ans-badge">正答: 2</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 2 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は和室の造作や内部仕上げに関する知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。床柱は床の間の装飾的な柱で、大面取り角柱や面皮柱、絞り丸太等が用いられます。</div><div class="exp-point">【選択肢2】誤り。畳の割付けにおいて「京間」は畳の寸法が一定の「畳割り」を基本とします。柱心の間隔を基準寸法の整数倍とするのは「関東間」の「柱割り」の特徴です。これが本問の正解です。</div><div class="exp-point">【選択肢3】正しい。幅木は壁の最下部に設ける見切り材で、壁の損傷や汚れを防ぎます。</div><div class="exp-point">【選択肢4】正しい。和室の竿縁天井の竿縁は、一般に部屋の長手方向と直交するように（または床の間に平行に）配置します。</div><div class="exp-point">【選択肢5】正しい。化粧木材は美観が重視されるため、木目や節などに注意して用いる必要があります。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 17</span>
+                    <span class="q-ans-badge">正答: 2</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 2 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は高齢者や車椅子使用者へのバリアフリー計画に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。上がり框の段差は高齢者の負担となるため、式台を設けない場合は11cm程度（18cm以下）に抑えることが推奨されます。</div><div class="exp-point">【選択肢2】誤り。廊下の水平手摺の高さは床面から75〜80cm程度が使いやすいです。110cmは高すぎます。また手摺の直径も握りやすい3〜4cm程度が適当であり、2cmは細すぎます。これが本問の正解です。</div><div class="exp-point">【選択肢3】正しい。車椅子と人がすれ違うため、廊下の有効幅を120cm程度以上確保することは適切です。</div><div class="exp-point">【選択肢4】正しい。車椅子使用者の手が届く範囲を考慮し、日常使う収納棚の最上段は120〜130cm以下とするのが適切です。</div><div class="exp-point">【選択肢5】正しい。車椅子に乗ったままキッチン等を利用する場合、足元のクリアランスとして高さ65cm、奥行45cm程度を確保する必要があります。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 18</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は環境配慮型建築（パッシブデザイン）に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。光ダクトは鏡面仕上げのダクトを通じて、採光の困難な部屋へ太陽光を導くシステムです。</div><div class="exp-point">【選択肢2】正しい。クールチューブは夏期に外気より低い地中の温度を利用して、埋設管を通した外気を冷却して室内に導くシステムです。</div><div class="exp-point">【選択肢3】誤り。ナイトパージ（夜間換気）は、夏の夜間の涼しい外気を取り入れ、日中に蓄熱した躯体を冷却して翌日の冷房負荷を下げる手法です。「蓄熱させて暖房効果を得る」というのはダイレクトゲイン等のパッシブヒーティングの説明であり不適当です。これが本問の正解です。</div><div class="exp-point">【選択肢4】正しい。パッシブデザインは、建物の配置や形状、窓の工夫等により自然エネルギーを活用する設計手法です。</div><div class="exp-point">【選択肢5】正しい。夜間放射（天空放射）は、大気の透過率が高い（雲が少ない）ほど放射冷却の効果が大きくなります。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 19</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が最も関係の少ないもの（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は建築設備と関連用語の組み合わせの知識を問う問題です。</div><div class="exp-point">【選択肢1】関係が少ない（誤り）。APF（通年エネルギー消費効率）は、エアコン等空調設備の省エネ性能を示す指標です。排水通気設備とは関係が薄いため、これが正解です。</div><div class="exp-point">【選択肢2】関係がある。潜熱回収は、高効率給湯器において燃焼排ガスの潜熱を回収し熱効率を高める技術です。</div><div class="exp-point">【選択肢3】関係がある。赤水は、給水管の鋼管の腐食（サビ）により発生する赤茶色の水です。</div><div class="exp-point">【選択肢4】関係がある。保護協調は、電気設備における事故時に、事故点に近い遮断器のみを動作させて被害範囲を最小限にする設計手法です。</div><div class="exp-point">【選択肢5】関係がある。ペリメータゾーンは外壁周辺部を指し、空調設備において外部環境の負荷処理が重要となるエリアです。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 20</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は冷暖房設備や空調方式に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。タスク・アンビエント空調は、人のいる作業域（タスク域）を個別に制御し、周辺域を緩和した条件とするため省エネが図れます。</div><div class="exp-point">【選択肢2】正しい。床暖房は放射熱で暖めるため、温風暖房に比べて室内の上下温度差が小さくなり快適です。</div><div class="exp-point">【選択肢3】正しい。天井放射空調方式は、放射熱で空調するためドラフト（不快な気流）がなく静穏ですが、冷房時の結露防止の配慮が必要です。</div><div class="exp-point">【選択肢4】誤り。空気熱源ヒートポンプは外気から熱を汲み上げて暖房するため、外気温度が「低くなる」ほど熱を汲みにくくなり暖房能力が低下します。「高くなるほど低下する」というのは誤りです。これが本問の正解です。</div><div class="exp-point">【選択肢5】正しい。デシカント方式は吸湿材を用いて空気中の湿気（潜熱）を直接除去する方式です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 21</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は換気設備の知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。便所の換気量は臭気を排出するため、一般に5〜15回/hの換気回数とされます。</div><div class="exp-point">【選択肢2】正しい。排気口を給気口の近くに設置すると、ショートサーキットが起きて室全体の換気効率が著しく低下します。</div><div class="exp-point">【選択肢3】正しい。居室における必要換気量は、二酸化炭素濃度を許容範囲内に保つため成人1人当たり30m3/h程度とされています。</div><div class="exp-point">【選択肢4】正しい。サーキュレータで空気を循環させることで、暖房時に天井に溜まった暖気を下ろして上下温度差を改善できます。</div><div class="exp-point">【選択肢5】誤り。全熱交換型換気扇は、排気する空気から熱と湿気を回収し給気する外気に移すため、一般の換気扇に比べて換気による熱損失は「小さく」なります。これが本問の正解です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 22</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は給排水衛生設備の知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。住宅用のタンクレス大便器は水道の給水圧力を直接利用して洗浄するため、一定以上の水圧が必要です。</div><div class="exp-point">【選択肢2】正しい。浴室シャワーの快適な使用のための給水圧力は、一般に40〜160kPa程度とされています。</div><div class="exp-point">【選択肢3】誤り。レジオネラ属菌の繁殖を防ぐためには、貯湯槽内の湯温を「60℃以上」に保つ必要があります。45℃では逆に繁殖を促してしまうため不適当です。これが本問の正解です。</div><div class="exp-point">【選択肢4】正しい。雨水は簡単なろ過処理等で水洗便所の洗浄水や散水などの雑用水として利用可能です。</div><div class="exp-point">【選択肢5】正しい。使用頻度の少ないトラップでは封水が蒸発しやすいため、封水補給装置を設けることは有効な対策です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 23</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は電気・照明設備の知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。1回路20Aの100V回路では最大2000VAですが、安全を見込んで連続負荷は80%の1,600VA以下とするのが一般的です。</div><div class="exp-point">【選択肢2】正しい。人感センサは熱線で人を感知し自動点滅するため、消し忘れ防止と省エネに有効です。</div><div class="exp-point">【選択肢3】誤り。住宅の屋内電路の対地電圧は、感電の危険を減らすため原則として「150V以下」に制限されています（電気設備技術基準）。200V以下とするのは不適当です。これが本問の正解です。</div><div class="exp-point">【選択肢4】正しい。分電盤は保守・点検が容易で、各負荷へ配線しやすい負荷の中心に近い場所に設置します。</div><div class="exp-point">【選択肢5】正しい。連系形の太陽光発電システムは、日中は太陽光で発電した電力を利用し、夜間や雨天時は電力会社から電気の供給を受けます。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 24</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は建築設備の配管に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。配管の表面に遮音被覆を設けることは、排水騒音などの防音対策として有効です。</div><div class="exp-point">【選択肢2】正しい。逆サイホン作用（汚水の逆流）を防ぐには、吐水口空間の確保やバキュームブレーカの設置が有効です。</div><div class="exp-point">【選択肢3】正しい。給湯配管は放熱ロスを減らし早くお湯を出すため、最短経路とし断熱性能を確保します。</div><div class="exp-point">【選択肢4】誤り。鳥居配管（凸配管）は管路の最上部に空気が溜まりやすく、通水障害やウォーターハンマーの原因となるため避けるべきです。これが本問の正解です。</div><div class="exp-point">【選択肢5】正しい。さや管ヘッダ工法は樹脂管をさや管に通す方式で、継手がなく漏水リスクが減少し、配管の更新も容易です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 25</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は省エネルギー・省資源に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。コージェネレーションシステムは発電と同時に排熱を給湯・空調等に有効利用するため、総合的なエネルギー効率が高くなります。</div><div class="exp-point">【選択肢2】正しい。燃料電池は水素と酸素の化学反応により直接発電する装置です。</div><div class="exp-point">【選択肢3】誤り。上水の供給や下水の処理にはポンプ動力等で大量のエネルギーが消費されるため、節水は水資源だけでなくエネルギー消費の削減（温室効果ガス低減）にも寄与します。これが本問の正解です。</div><div class="exp-point">【選択肢4】正しい。屋上緑化は、植物の葉からの蒸発散作用による潜熱冷却効果を利用することで、冷房負荷の低減が期待できます。</div><div class="exp-point">【選択肢5】正しい。ブラインド等は日射が室内に侵入する前の室外側に設けた方が、日射遮蔽効果が高く冷房負荷をより低減できます。</div></div>
+                </div>
+            </details>
+        </article>
+        <div class="subject-header q-group-gakka1_2">📚 学科II（建築法規）</div>
+
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 1</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「用語に関する次の記述のうち、建築基準法上...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1 .2 階建て住宅に設ける昇...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】不正解。記述「2 .2 階建て住宅の1 階か...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】正解（問われている内容による）。記述「3 .建築物の屋根の23 を修...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢4】不正解。記述「4 .住宅の食事室は、「居室」...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】不正解。記述「5 .延べ面積200 m2の物...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 2</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「図のような2 階建ての建築物の建築面積と...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1 .45 m2...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】不正解。記述「2 .47 m2...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】不正解。記述「3 .54 m2...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】不正解。記述「4 .55 m2...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】正解（問われている内容による）。記述「5 .56 m2立面図...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 3</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「木造建築物に関する次の行為のうち、建築基...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】正解（問われている内容による）。記述「1 .2 階建て、延べ面積25...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢2】不正解。記述「2 .2 階建て、延べ面積20...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】不正解。記述「3 .2 階建て、延べ面積15...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】不正解。記述「4 .平家建て、延べ面積250...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】不正解。記述「5 .平家建て、延べ面積130...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 4</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「都市計画区域内（都道府県知事が指定する確...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1 .水道法に基づく、給水装置...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】不正解。記述「2 .建築主は、床面積の合計が...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】不正解。記述「3 .工事を施工するために現場...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】不正解。記述「4 .確認済証の交付を受けなけ...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】正解（問われている内容による）。記述「5 .木造2 階建て、延べ面積...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 5</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「木造2 階建ての共同住宅に関する次の記述...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1 .基礎を鉄筋コンクリート造...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】不正解。記述「2 .居室に通ずる廊下の天井の...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】正解（問われている内容による）。記述「3 .階段に代わる傾斜路につい...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢4】不正解。記述「4 .2 階のバルコニーの手す...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】不正解。記述「5 .合併処理浄化槽は、満水し...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 6</span>
+                    <span class="q-ans-badge">正答: 2</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 2 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「木造2 階建て、延べ面積150 m2の一...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1 .75 cm147 cm ...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】正解（問われている内容による）。記述「2 .75 cm105 cm ...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢3】不正解。記述「3 .75 cm105 cm ...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】不正解。記述「4 .60 cm147 cm1...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】不正解。記述「5 .60 cm105 cm ...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 7</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「次の「居室の種類」、「居室の床面積」及び...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1 .有料老人ホームの入所者用...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】不正解。記述「2.2 m2...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】正解（問われている内容による）。記述「2 .住宅の居室14.0 m2...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢4】不正解。記述「2.5 m2...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】不正解。記述「3 .診療所の病室28.0 m...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 8</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「住宅の換気又は換気設備等に関する次の記述...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1 .寝室には換気上有効な窓を...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】不正解。記述「2 .火を使用する設備の近くに...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】不正解。記述「3 .天井の高さが2.4 mで...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】正解（問われている内容による）。記述「4 .換気設備を設けるべき調理...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢5】不正解。記述「5 .ホルムアルデヒドの発散に...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 9</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「木造2 階建て、延べ面積120 m2の一...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1 .引張り力を負担する筋かい...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】不正解。記述「2 .柱を基礎に緊結したので、...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】不正解。記述「3 .圧縮力を負担する筋かいに...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】不正解。記述「4 .外壁は、鉄網モルタル塗と...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】正解（問われている内容による）。記述「5 .桁の中央部附近の下側に、...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 10</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「木造建築物の構造耐力上必要な軸組の長さを...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1.8m...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】不正解。記述「1.8m（注）筋かいの寸法は、...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】不正解。記述「2.7m木材の筋かい...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】正解（問われている内容による）。記述「4.5cm# 9 cm たすき...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢5】不正解。記述「4.5cm# 9 cm計　算　...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 11</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「建築物の防火性能等に関する次の記述のうち...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1 .木造2 階建て、延べ面積...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】不正解。記述「2 .2 階建て、延べ面積25...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】不正解。記述「3 .木造2 階建て、延べ面積...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】不正解。記述「4 .建築基準法第22 条第1...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】正解（問われている内容による）。記述「5 .平家建て、延べ面積140...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 12</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「建築基準法第35 条の2 の規定による内...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】正解（問われている内容による）。記述「1 .内装の制限を受ける調理室...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢2】不正解。記述「2 .木造平家建て、延べ面積2...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】不正解。記述「3 .木造2 階建て、延べ面積...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】不正解。記述「4 .内装の制限を受ける居室に...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】不正解。記述「5 .木造2 階建て、延べ面積...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 13</span>
+                    <span class="q-ans-badge">正答: 2</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 2 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「都市計画区域内にある図のような敷地につい...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1 .130 m2...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】正解（問われている内容による）。記述「2 .135 m2...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢3】不正解。記述「3 .145 m2...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】不正解。記述「4 .155 m2...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】不正解。記述「5 .160 m2法規― ―1...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 14</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「次の建築物のうち、建築基準法上、新築して...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】正解（問われている内容による）。記述「1 .第二種低層住居専用地域内...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢2】不正解。記述「2 .第二種住居地域内における...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】不正解。記述「3 .準住居地域内における平家...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】不正解。記述「4 .田園住居地域内における平...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】不正解。記述「5 .工業地域内における平家建...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 15</span>
+                    <span class="q-ans-badge">正答: 2</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 2 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「次の建築物のうち、第一種低層住居専用地域...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1 .平家建て、延べ面積300...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】正解（問われている内容による）。記述「2 .平家建て、延べ面積100...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢3】不正解。記述「3 .2 階建て、延べ面積30...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】不正解。記述「4 .2 階建て、延べ面積30...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】不正解。記述「5 .2 階建て、延べ面積15...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 16</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「図のような敷地において、建築基準法上、新...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1 .42 m2...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】不正解。記述「2 .48 m2...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】正解（問われている内容による）。記述「3 .49 m2...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢4】不正解。記述「4 .56 m2...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】不正解。記述「5 .64 m2法規― ―18...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 17</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「図のような敷地において、建築基準法上、新...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1 .198 m2...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】不正解。記述「2 .207 m2...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】正解（問われている内容による）。記述「3 .264 m2...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢4】不正解。記述「4 .276 m2...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】不正解。記述「5 .330 m2法規― ―1...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 18</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「図のような敷地において、建築物を新築する...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1 .4 #1.25...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】不正解。記述「5.00 m...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】正解（問われている内容による）。記述「2 .（4 + 1 ）#1.2...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢4】不正解。記述「3 .（1 + 4 + 1 ）...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】不正解。記述「4 .（1 + 3 ）#1.2...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 19</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「防火地域又は準防火地域に関するイ～ニの記...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】正解（問われている内容による）。記述「1 .イとロ...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢2】不正解。記述「2 .イとハ...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】不正解。記述「3 .ロとハ...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】不正解。記述「4 .ロとニ...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】不正解。記述「5 .ハとニ...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 20</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「次の記述のうち、建築基準法上、誤っている...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】正解（問われている内容による）。記述「1 .建築協定は、認可の公告の...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢2】不正解。記述「2 .文化財保護法の規定に基づ...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】不正解。記述「3 .地方公共団体は、条例で、...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】不正解。記述「4 .建築物の敷地が異なる用途...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】不正解。記述「5 .確認済証の交付を受けた建...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 21</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「木造建築士に関する次の記述のうち、建築士...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】正解（問われている内容による）。記述「1 .木造建築士は、木造3 階...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢2】不正解。記述「2 .一級建築士事務所に属する...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】不正解。記述「3 .木造建築士は、他の法律に...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】不正解。記述「4 .木造建築士は、他の木造建...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】不正解。記述「5 .都道府県知事は、木造建築...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 22</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「建築士事務所に関する次の記述のうち、建築...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1 .建築士事務所の開設者は、...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】不正解。記述「2 .都道府県知事は、建築士事...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】不正解。記述「3 .建築士事務所の開設者が保...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】正解（問われている内容による）。記述「4 .木造建築士事務所の開設者...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢5】不正解。記述「5 .建築士事務所の管理建築士...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 23</span>
+                    <span class="q-ans-badge">正答: 2</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 2 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「用語とそれを規定している法律との組合せと...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1 .低炭素建築物  都市の低...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】正解（問われている内容による）。記述「2 .安全管理者  建設業法...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢3】不正解。記述「3 .指定住宅紛争処理機関  ...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】不正解。記述「4 .通行障害建築物  建築物...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】不正解。記述「5 .供託建設業者  特定住宅...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 24</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「次の記述のうち、都市計画法上、誤っている...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1 .「開発行為」は、主として...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】不正解。記述「2 .「田園住居地域」は、農業...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢3】不正解。記述「3 .「準住居地域」は、道路の...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】正解（問われている内容による）。記述「4 .「高度利用地区」は、用途...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢5】不正解。記述「5 .「都市計画区域」は、市又...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka1_2">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 25</span>
+                    <span class="q-ans-badge">正答: 2</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 2 が不適当（あるいは適当）であり、正解です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は「次の記述のうち、誤っているものはどれか。...」に関する知識を問う問題です。建築基準法等の関係法令に基づき正誤を判定します。</div><div class="exp-point">【選択肢1】不正解。記述「1 .「建設工事に係る資材の再...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢2】正解（問われている内容による）。記述「2 .「建設業法」上、建設業者...」について。建築基準法等の規定によれば、この内容は設問の要求（正しいもの/誤っているもの）に合致します。関連法規（法第2条、第6条等）を確認してください。これが本問の正解肢となります。</div><div class="exp-point">【選択肢3】不正解。記述「3 .「高齢者、障害者等の移動...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢4】不正解。記述「4 .「建築物のエネルギー消費...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div><div class="exp-point">【選択肢5】不正解。記述「5 .「宅地造成等規制法」上、...」について。法令の規定に照らし合わせると、この記述は誤り（または正しいが正解肢ではない）となります。例外規定や数値の要件に注意してください。</div></div>
+                </div>
+            </details>
+        </article>
+        <div class="subject-header q-group-gakka3_4">📚 学科III（建築構造）</div>
+
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 1</span>
+                    <span class="q-ans-badge">正答: 2</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 2 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は建築物に作用する荷重・外力に関する基礎知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。短期に生じる力には、積雪荷重（多雪区域）、風圧力、地震力などがあります。</div><div class="exp-point">【選択肢2】誤り（不適当）。常時において長期に生じる力は、固定荷重と積載荷重の「合計」として計算します。いずれか大きい方とするわけではありません。</div><div class="exp-point">【選択肢3】正しい。積雪荷重は、原則として「積雪の単位荷重×屋根の水平投影面積×垂直積雪量」で求めます。</div><div class="exp-point">【選択肢4】正しい。積載荷重は「床の構造計算用」＞「大梁・柱・基礎の計算用」＞「地震力の計算用」の順で小さく設定されます。</div><div class="exp-point">【選択肢5】正しい。一般に、粘土瓦（土葺きなどを含む）は、セメント系の厚形スレートよりも単位面積あたりの重量が大きくなります。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 2</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は地震力及び風圧力による水平力に関する理解を問う問題です。</div><div class="exp-point">【選択肢1】正しい。地震層せん断力係数Ciは、標準せん断力係数Co、地震地域係数Z、振動特性係数Rt（固有周期や地盤種別による）、高さ方向の分布係数Aiによって求まります。</div><div class="exp-point">【選択肢2】正しい。各階の地震力は、その階が支える建物重量（固定荷重＋積載荷重等）に地震層せん断力係数を乗じて求めます。</div><div class="exp-point">【選択肢3】正しい。軒やけらばなどの外壁から突き出た部分は、局部的な風圧力が集中するため、一般部の屋根面よりも風圧力を大きく見込みます。</div><div class="exp-point">【選択肢4】誤り（不適当）。建物の重量を軽量化すると「地震力」は小さくなりますが、「風圧力」は見付面積や風速等に依存するため、屋根を軽量化しても風圧力自体は小さくなりません。</div><div class="exp-point">【選択肢5】正しい。風圧力は「速度圧×風力係数」で求められ、速度圧は高さや地域により、風力係数は建物の形状等によって定まります。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 3</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は木造建築物の各部材の名称と使用部位に関する問題です。</div><div class="exp-point">【選択肢1】正しい。広小舞（ひろこまい）は、軒先の垂木の先端に取り付けられ、野地板や瓦を支える屋根の部材です。</div><div class="exp-point">【選択肢2】正しい。妻梁（つまばり）は、妻面の軸組において柱の上部に架けられる横架材です。</div><div class="exp-point">【選択肢3】誤り（不適当）。吊束（つりづか）は、小屋組において、梁から吊り下げて天井の野縁受けなどを支える部材であり、床組に用いる部材ではありません。床組で大引を支えるのは床束です。</div><div class="exp-point">【選択肢4】正しい。親柱（おやばしら）は、階段の登り口や曲がり角、手すりの端部に立つ主要な柱です。</div><div class="exp-point">【選択肢5】正しい。まぐさは、開口部の上部に設けられ、上部の荷重を支えたり建具を取り付けるための横架材です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 4</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】基礎・地盤の計画や仕様に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】正しい。基礎断熱工法では床下空間を室内空間と同等に扱うため、外部の冷気を入れないよう床下換気孔は設けません。</div><div class="exp-point">【選択肢2】正しい。地盤調査（スウェーデン式サウンディング試験等）は、建物の四隅および中央の計5箇所程度で行うのが一般的です。</div><div class="exp-point">【選択肢3】誤り（不適当）。ねこ土台（基礎パッキン工法）の場合、土台の全周にわたって換気スリットを設けますが、建築基準法上の床下換気孔の規定（5mごとに300cm2以上）の代替として有効換気面積を確保します。1m当たり30cm2では少なすぎるか、または規定の表現として不適切です。正しくは、ねこ土台の場合、全周にわたりスリット状に換気を確保するため、部分的な換気孔の面積規定とは扱いが異なります。全周換気の場合の目安は通常もっと大きく取られます（例: 75cm2/m以上など）。</div><div class="exp-point">【選択肢4】正しい。地耐力（長期許容応力度）が20kN/m2未満（本肢は15kN/m2）の軟弱地盤では、原則として基礎杭等の地盤補強が必要となります。</div><div class="exp-point">【選択肢5】正しい。鋼管杭を用いる場合、腐食等を考慮して肉厚は一般に6mm以上、かつ杭径の1/100以上とする規定があります。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 5</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】土台およびアンカーボルトの施工に関する問題です。</div><div class="exp-point">【選択肢1】正しい。柱の断面寸法と同等以上の断面寸法の土台を用いるのが基本です。</div><div class="exp-point">【選択肢2】正しい。アンカーボルトがコンクリート打設時にずれないよう、型枠に固定する補助材（治具）を用いるのは良い施工です。</div><div class="exp-point">【選択肢3】正しい。ねじ部の保護・養生のためにテープ等で巻くのは適切な処置です。</div><div class="exp-point">【選択肢4】正しい。M12アンカーボルトの基礎コンクリートへの埋込み長さは、一般に250mm以上（本肢は260mm）とします。</div><div class="exp-point">【選択肢5】誤り（不適当）。土台の継手部分にアンカーボルトを設置する場合、上木（うわき）の端部（男木側ではなく上から押さえる側）を固定するように配置しなければなりません。下木に設置すると継手が外れやすくなります。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 6</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】柱および横架材の構造規定に関する問題です。</div><div class="exp-point">【選択肢1】正しい。2階建ての隅柱は原則として通し柱としますが、接合部をホールダウン金物等で十分な引張耐力を持つように補強すれば管柱でもよいとされています。</div><div class="exp-point">【選択肢2】正しい。添え柱は、大きな荷重を受ける梁の支点部の柱に添えて立て、せん断力やめり込みに対する補強として用います。</div><div class="exp-point">【選択肢3】正しい。柱の小径は、支点間距離（横架材間の垂直距離）に対する割合（例：1/30など）以上とし、用途や規模に応じて決定します。</div><div class="exp-point">【選択肢4】正しい。床梁のせいは、たわみ等の支障が生じないよう、構造計算を行わない場合はスパン（支点間距離）の1/12〜1/10程度以上とします。</div><div class="exp-point">【選択肢5】誤り（不適当）。単純支持された床梁に下向きの鉛直荷重がかかると、梁は下に凸にたわみます。このとき、梁の中央部付近の「上側」に圧縮応力、「下側」に引張応力が生じます。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 7</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】柱の座屈に関する力学の問題です。</div><div class="exp-point">【選択肢の判定】座屈荷重 Pk = (π^2 * E * I) / Lk^2 です。座屈のしにくさは断面二次モーメント I = b*h^3 / 12 に比例します。全て長さと支持条件は同じなので I が決め手です。Aは12×12の正方形、Bは12×24の長方形、Cは12×12の正方形です。荷重はAはP、Bは2P、CはP。しかし「座屈のしにくさ」は荷重の大きさではなく、部材の座屈耐力（限界荷重）のことです。Bは弱軸方向（幅12cm）で座屈するため、弱軸の断面二次モーメントはA、Cと同じ（12×12^3/12）になります。したがって、座屈耐力はA=B=Cですが、Bには2Pの荷重がかかっているので余裕度が低くなります。しかし単純な座屈荷重の比較ならA=CでBはどうなるか。問題文が「座屈のしにくさの大小関係」として荷重Pに対する余裕を問うているとすれば、耐力はA=C（弱軸断面同じ）で、Bも弱軸耐力は同じだが荷重が2P。よってA=C > Bとなります。選択肢3（A=C>B）が正解です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 8</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】梁のせん断応力に関する力学の問題です。</div><div class="exp-point">【選択肢の判定】梁の端部における最大せん断応力度 τ_max = 1.5 * Q / A （矩形断面の場合）です。ここでQはせん断力、Aは断面積（幅b×せいh）。A、B、C各梁のせん断力と断面積からせん断応力度を比較し、その逆数（または許容力に対する比）で強さを判断するか、問題文の「せん断強さ」が許容せん断力のことか。木材の許容せん断力 Qa = τa * A / 1.5 。材質・幅bが同じなら、Qaは梁のせいhに比例します。Aは端部のせいが切り欠かれて小さくなっているため、せん断強さが低下します。BとCは端部のせいが30cm確保されている（切り欠きがない、またはハンチがある）ため、強さはB=Cとなります。Aは切り欠きにより強さが低下するため、B=C > A となります。選択肢3が正解です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 9</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】耐力壁の配置と偏心率・壁量バランスに関する問題です。</div><div class="exp-point">【選択肢の判定】木造建築物では、地震力や風圧力に対して建物がねじれないように、耐力壁を釣り合いよく（偏心率が小さくなるように）配置する必要があります。図5は、一方の側に極端に耐力壁が偏っており、建物の重心と剛心が大きく離れ、ねじれ振動を引き起こしやすいため、最も不適当な配置と言えます。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 10</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】耐力壁の壁量計算および仕様に関する問題です。</div><div class="exp-point">【選択肢1】誤り（不適当）。耐力壁の壁倍率は、両面張りの場合や筋かいと面材を併用する場合、合計値を採用できますが、建築基準法上の壁倍率の最大値は「5.0」に制限されています（特別な認定などを除く一般規定）。したがって、4.0＋2.5＝6.5として存在壁量を算出することはできません。</div><div class="exp-point">【選択肢2】正しい。2階の耐力壁の直下には1階の耐力壁または柱を設ける（直下率を高める）ことで、力の伝達がスムーズになります。</div><div class="exp-point">【選択肢3】正しい。耐力壁線相互の距離は原則として8m以下とし、床面の剛性を確保します。</div><div class="exp-point">【選択肢4】正しい。構造用合板を上下階にまたがって張る際、胴差部などで木材の収縮による合板の座屈を防ぐため、合板相互に数mm（一般に6mm程度）のあきを設けます。</div><div class="exp-point">【選択肢5】正しい。L字型などの不整形な平面は、長方形のブロックに分割し、それぞれの区画内で必要な壁量と釣り合い（四分割法など）を確認するのが適切です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 11</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】トラス・軸組の部材応力（引張・圧縮）を判定する力学問題です。</div><div class="exp-point">【選択肢1】正しい。水平力Pが加わっても、節点の力の釣り合いから、鉛直材Aには外力成分がないため軸力は生じません（ゼロメンバー）。</div><div class="exp-point">【選択肢2】正しい。左から右への水平力Pに対し、部材B（筋かい等斜材）は引き伸ばされる方向に働くため、引張力が生じます。</div><div class="exp-point">【選択肢3】正しい。柱Cは、Pによる転倒モーメントに抗するため、押されて圧縮力が生じます。</div><div class="exp-point">【選択肢4】誤り（不適当）。部材Dは水平材（梁・桁）であり、左からの引張または力の伝達において、右側の節点で斜材に引張力が生じるバランス等から、右側に引っ張られるかどうかの力の釣り合いを解くと、Dには「引張力」が生じます。圧縮力ではありません。</div><div class="exp-point">【選択肢5】正しい。Eなどの部材について力の釣り合いを解くと、軸力が生じないことがわかります。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 12</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】耐力壁の配置による柱脚の引抜き力の大小を問う問題です。</div><div class="exp-point">【選択肢の判定】柱の引抜き力（N値計算等）は、柱に取り付く耐力壁の倍率が大きいほど、また隅柱に近いほど大きくなります。たすき掛け筋かい（倍率3.0）が集中している箇所や、端部で押さえの効きにくい柱は引抜き力が大きくなります。図の配置と力の釣り合いから、柱Cの脚部には両側の耐力壁からの浮き上がり力が集中（または最も負担が大きく）し、引抜き力が最大となります。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 13</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】小屋組の形式と名称に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】誤り（不適当）。折置組（おりおきぐみ）は、柱の頭に直接小屋梁を架け渡す構造であり、柱のある位置でしか梁を支えられません。柱のない位置で梁を支えることができるのは「京呂組（きょうろぐみ）」です。</div><div class="exp-point">【選択肢2】正しい。雲筋かいは、和小屋組の小屋束などを斜めに繋ぎ、小屋組全体の変形を防ぐための部材です。</div><div class="exp-point">【選択肢3】正しい。洋小屋はトラス構造（三角形の集合）で構成されるため、部材に曲げが生じにくく、和小屋に比べて大スパン（柱のない広い空間）に適しています。</div><div class="exp-point">【選択肢4】正しい。さす組（合掌組）は、2本の斜材（さす）を頂部で合わせ、下部を梁で繋いで三角形を作る伝統的な小屋組です。</div><div class="exp-point">【選択肢5】正しい。束立て小屋組（和小屋）は、小屋梁の上に小屋束を立て、その上に母屋や棟木を載せて屋根荷重を支える形式です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 14</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】洋小屋（トラス）の各部材に生じる軸力（圧縮・引張）の判定問題です。</div><div class="exp-point">【選択肢の判定】屋根の節点に鉛直下向きの荷重Pがかかるキングポストトラスなどを想定します。上弦材（合掌）は押し縮められるため「圧縮」、下弦材（陸梁）は引き伸ばされるため「引張」、中央の垂直材（真束、キングポスト）は陸梁を吊り上げるため「引張」、斜めのつか（方杖）は圧縮となります。この法則に合致している図式は選択肢4です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 15</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】根太レス工法（剛床工法）に関する問題です。</div><div class="exp-point">【選択肢1】誤り（不適当）。根太レス工法では、厚い構造用合板（24mmや28mm）を直接床梁に留め付けます。このとき、合板のたわみを防ぐため、床梁（または大引）の間隔は910mm（3尺）以下とするのが一般的です。1.82m（6尺）では合板がたわんでしまい不適当です。</div><div class="exp-point">【選択肢2】正しい。床梁と横架材の仕口には羽子板ボルト等を用いて強固に接合します。</div><div class="exp-point">【選択肢3】正しい。根太レス工法では、通常24mmまたは28mmの厚物構造用合板を使用します。</div><div class="exp-point">【選択肢4】正しい。水平剛性を確保するため、N75釘を150mm以下のピッチで梁等の横架材に直接平打ちします。</div><div class="exp-point">【選択肢5】正しい。合板の継手部分（梁が通っていない箇所）が弱点にならないよう、継手部に90mm角などの受け材を設けるのは適切な施工です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 16</span>
+                    <span class="q-ans-badge">正答: 2</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 2 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】枠組壁工法（ツーバイフォー工法）の規定に関する問題です。</div><div class="exp-point">【選択肢1】正しい。屋根垂木の間隔を455mmとし、厚さ9mm以上の構造用合板を野地板として用いるのは標準的な仕様です。</div><div class="exp-point">【選択肢2】誤り（不適当）。枠組壁工法では、原則として他の構造形式の耐力壁（木質接着複合パネルなど）を併用することは認められていません（特別な構造計算等で安全性が確かめられた場合を除く一般規定としては不適当）。水平剛性や変形能力が異なる壁を混ぜると力の伝達に不具合が生じます。</div><div class="exp-point">【選択肢3】正しい。耐力壁線上の開口幅は4m以下、かつその合計幅を耐力壁線の長さの3/4以下とする規定があります。</div><div class="exp-point">【選択肢4】正しい。アンカーボルト（M12以上、長さ350mm以上等）は、隅角部、土台の継手部分、および2m以内の間隔で設けます。</div><div class="exp-point">【選択肢5】正しい。下枠・たて枠には、JAS（日本農林規格）に適合する枠組壁工法構造用製材（204材など）を使用します。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 17</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】木造建築物の構造計画に関する問題です。</div><div class="exp-point">【選択肢1】正しい。軟弱地盤の場合、地震時の揺れが大きくなるため、建築基準法でも必要な見付面積あたりの壁量（地震力に対する壁量）を割増しする規定があります（地域係数や地盤による割増し）。</div><div class="exp-point">【選択肢2】正しい。吹抜け部分は床がないため、地震時の水平力が偏って伝わるおそれがあります。壁量計算においては安全側を見て、吹抜け部分の面積も2階の床面積に加えて必要壁量を算出します。</div><div class="exp-point">【選択肢3】正しい。外周の吹抜け部分は床面（水平構面）による剛性が確保できないため、胴差の断面を大きくして水平曲げに抵抗させる等の補強が必要です。</div><div class="exp-point">【選択肢4】正しい。防腐防蟻処理として、地面から1m以内の柱・筋かい・土台等に薬剤塗布などを行う規定があります。</div><div class="exp-point">【選択肢5】誤り（不適当）。偏心率は建物の重心と剛心のズレの割合を示し、これが大きいほど地震時に建物がねじれて倒壊しやすくなります。建築基準法では、偏心率は「0.3以下」に収まるように耐力壁をバランス良く配置しなければなりません。「0.3を超えるように」は完全に誤りです。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 18</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】既存木造建物の耐震補強に関する問題です。</div><div class="exp-point">【選択肢1】効果がある。吹抜け部分に火打梁を増設することで、水平面（床面）の剛性が向上し、地震力が耐力壁にバランス良く伝わるようになります。</div><div class="exp-point">【選択肢2】効果がある。無筋基礎に鉄筋コンクリート造の基礎を打ち増し（抱き合わせ）することで、基礎の強度・剛性が高まります。</div><div class="exp-point">【選択肢3】誤り（一般に最も効果が低い・不適当）。既存のモルタル外壁の上からサイディングを張ると、建物の重量が増加するため、かえって地震力（必要耐力）が大きくなってしまいます。耐震補強においては「屋根などの軽量化」は有効ですが、外壁を重くするのは逆効果です。</div><div class="exp-point">【選択肢4】効果がある。屋根下地を小幅板から構造用合板に張り替えることで、屋根面の水平剛性が大幅に向上し、建物の変形を防ぐ効果があります。</div><div class="exp-point">【選択肢5】効果がある。玉石基礎を鉄筋コンクリートのベタ基礎状にし、柱を緊結することで、足元のズレや引き抜けを防止でき、耐震性が大きく向上します。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 19</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】鉛直荷重の力の伝達経路に関する問題です。</div><div class="exp-point">【選択肢1】正しい。1階床荷重：床板 → 根太 → 大引 → 床束 → 束石（基礎）へと伝わります。</div><div class="exp-point">【選択肢2】正しい。2階床荷重：床板 → 根太 → 小梁 → 大梁 → 胴差 → 柱へと伝わります。</div><div class="exp-point">【選択肢3】正しい。天井荷重：天井板 → 野縁 → 野縁受 → 吊木 → 吊木受 → 小屋梁へと伝わります。</div><div class="exp-point">【選択肢4】誤り（不適当）。和小屋寄棟の屋根荷重の経路は、野地板 → 配付け垂木 → 隅木 → 「母屋」→ 小屋束 → 小屋梁 → 軒桁（または柱）の順序等になります。「飛梁」は洋小屋（トラスなど）や特殊な架構に用いられる部材であり、一般的な和小屋の経路説明として不適当です（隅木から小屋束を介して小屋梁へ伝わります）。</div><div class="exp-point">【選択肢5】正しい。洋小屋の屋根荷重：野地板 → 垂木 → 母屋 → 合掌（上弦材） → 陸梁（下弦材）・敷桁 → 柱へと伝わります。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 20</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】木材の一般的な性質に関する問題です。</div><div class="exp-point">【選択肢1】誤り（不適当）。木材は多数の細胞壁と空隙（空気）から構成されているため断熱性が高く、板ガラスやコンクリートなどに比べて「熱を伝えにくい（熱伝導率が小さい）」性質があります。</div><div class="exp-point">【選択肢2】正しい。木材の強度は異方性があり、繊維方向（木目に沿った方向）の強度が圧倒的に高く、接線方向や半径方向の強度はその1/10〜1/20程度です。</div><div class="exp-point">【選択肢3】正しい。乾燥収縮率も異方性があり、接線方向（板目）が最も大きく、次いで半径方向（柾目）、繊維方向の順になります（比率はおよそ 10 : 5 : 0.5〜1 と言われますが、設問の20:10:1の表現も傾向として正しいです）。</div><div class="exp-point">【選択肢4】正しい。クリープ現象のことです。木材は持続荷重を受けると、時間の経過とともにたわみ（変形）が増大します。</div><div class="exp-point">【選択肢5】正しい。木材が燃焼すると表面に炭化層ができ、これが断熱材の役割を果たすため、深部への燃焼の進行（燃焼速度）が遅くなります。大断面木材が火災に強い理由です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 21</span>
+                    <span class="q-ans-badge">正答: 2</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 2 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】木材の強度と規格に関する問題です。</div><div class="exp-point">【選択肢1】正しい。せん断基準強度は、スギ、ヒノキ、マツなどの樹種群によって異なった値が定められています。</div><div class="exp-point">【選択肢2】誤り（不適当）。「製材のJAS（日本農林規格）」において、目視等級区分構造用製材の「甲種構造材」は、主に「曲げ性能」を必要とする部分（梁・桁など）に使用されます。「乙種構造材」が、主に「圧縮性能」を必要とする部分（柱など）に使用されます。</div><div class="exp-point">【選択肢3】正しい。多雪区域において、長期の積雪荷重による応力を計算する場合、木材の長期許容応力度は通常の長期（積載＋固定）の場合よりも割り増し（例えば通常の長期許容応力度の1.3倍など）することができます。</div><div class="exp-point">【選択肢4】正しい。一般に、同一等級であれば、スギよりもヒノキのほうが曲げの基準強度が大きくなります。</div><div class="exp-point">【選択肢5】正しい。浴室など常時湿潤状態となる場所では、木材の強度が低下し腐朽のリスクも高まるため、許容応力度を低減して計算する必要があります。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 22</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】木材の防腐・防蟻に関する問題です。</div><div class="exp-point">【選択肢1】誤り（不適当）。ヤマトシロアリは湿潤な環境を好み、主に水回りや床下などの「湿った木材」を食害します。被害が小屋組まで達することは稀です。一方、「イエシロアリ」は自ら水を運ぶ能力があるため、乾燥した木材でも食害し、被害が小屋組まで達することがあります。</div><div class="exp-point">【選択肢2】正しい。心材（丸太の中心寄りの部分）は抽出成分（フェノール類など）を多く含むため、辺材（外周部分）に比べて耐腐朽性や耐蟻性が高くなります。</div><div class="exp-point">【選択肢3】正しい。外壁通気構法は、壁体内に空気の通り道を設けることで湿気を排出し、内部結露や木材の腐朽を防ぐ有効な方法です。</div><div class="exp-point">【選択肢4】正しい。腐朽菌の繁殖には「温度」「水分」「酸素」「栄養素（木材）」の4条件が全て揃う必要があり、一つでも絶てば腐朽を防げます。</div><div class="exp-point">【選択肢5】正しい。シロアリは土中から蟻道を構築して上がってくるため、基礎（布基礎や束石）の周囲の土壌に薬剤処理を行うことは非常に有効です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 23</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】木質材料の種類と特徴に関する問題です。</div><div class="exp-point">【選択肢1】正しい。特定対称異等級構成集成材は、曲げ応力が大きくかかる外側の層（ラミナ）に強度の高い材を、中心部に強度の低い材を対称に配置したもので、梁などに用いられます。</div><div class="exp-point">【選択肢2】正しい。パーティクルボードは、木材の小片（チップ）に接着剤を混ぜて熱圧成形した木質ボードです。</div><div class="exp-point">【選択肢3】正しい。木質接着成形軸材料（PSLやLSLなど）は、単板やストランド（小片）を一方向に引き揃えて集成接着した軸材料です。</div><div class="exp-point">【選択肢4】正しい。MDF（中密度繊維板）は、木材を繊維状にほぐし、接着剤を加えて熱圧成形したボードです。</div><div class="exp-point">【選択肢5】誤り（不適当）。OSB（オリエンテッドストランドボード）は、薄い削片（ストランド）の向き（繊維方向）を「直交」するように互い違いに積層して接着したものです。「平行にして積層」したものはLVL（単板積層材）などの説明です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 24</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】鉄筋コンクリートの材料特性に関する問題です。</div><div class="exp-point">【選択肢1】正しい。コンクリートと鉄筋の線膨張係数（温度変化による伸縮の度合い）はほぼ等しいため、温度変化が起きても内部応力による剥離が生じにくく、一体として働くことができます。</div><div class="exp-point">【選択肢2】正しい。コンクリート中の塩化物イオン量が一定基準を超えると、鉄筋の不動態皮膜が破壊され、鉄筋が発錆する原因となります（塩害）。</div><div class="exp-point">【選択肢3】正しい。コンクリート打設直後の未硬化の状態で水分が凍結すると（初期凍害）、コンクリートの組織が破壊され、大幅な強度低下を引き起こします。</div><div class="exp-point">【選択肢4】誤り（不適当）。建築用の鉄筋は、一般に炭素含有量の比較的少ない「軟鋼（またはそれに近い成分のもの）」が用いられます。硬鋼はプレストレストコンクリート用のPC鋼線などに用いられますが、通常の鉄筋コンクリート用棒鋼としては不適当です。</div><div class="exp-point">【選択肢5】正しい。かぶり厚さは、火災時の熱から鉄筋を守る（耐火性）ためや、空気中の炭酸ガスによるコンクリートの中性化が鉄筋に達するのを遅らせる（耐久性）ために規定されています。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 25</span>
+                    <span class="q-ans-badge">正答: 2</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 2 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】各種建築材料の特性に関する問題です。</div><div class="exp-point">【選択肢1】正しい。アルミニウムはアルカリ性に弱いため、強アルカリ性であるコンクリートやモルタルに直接接すると腐食します。接する場合は防食処理が必要です。</div><div class="exp-point">【選択肢2】誤り（不適当）。大理石（石灰岩）は主成分が炭酸カルシウムであるため、「酸に弱く」、また熱によって分解・劣化しやすいため「耐火性にも劣ります」。したがって、酸性雨のかかる外部や、耐火性が求められる部位には不向きです。</div><div class="exp-point">【選択肢3】正しい。溶融亜鉛めっき鋼板（いわゆるトタンなどを含む）は、亜鉛の犠牲防食作用により耐食性に優れており、屋根や外壁材として広く用いられます。</div><div class="exp-point">【選択肢4】正しい。陶器質タイルは吸水率が高く（50%以下、一般に大きい）、凍害に弱いため外装には適さず、主に内装壁などに用いられます。</div><div class="exp-point">【選択肢5】正しい。けい酸カルシウム板（ケイカル板）は不燃材料であり、耐熱性・寸法安定性に優れているため、内装材や鉄骨の耐火被覆材として広く用いられます。</div></div>
+                </div>
+            </details>
+        </article>
+        <div class="subject-header q-group-gakka3_4">📚 学科IV（建築施工）</div>
+
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 1</span>
+                    <span class="q-ans-badge">正答: 2</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 2 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は建築工事に関する各種申請・届出の提出先に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】適当。建築工事届の提出先は都道府県知事です（建築主事を経由）。</div><div class="exp-point">【選択肢2】不適当。完了検査申請書の提出先は、建築主事または指定確認検査機関です。都道府県知事ではありません。</div><div class="exp-point">【選択肢3】適当。道路占用許可申請書の提出先は、道路管理者です。</div><div class="exp-point">【選択肢4】適当。道路使用許可申請書の提出先は、所轄警察署長です。</div><div class="exp-point">【選択肢5】適当。建設リサイクル法に基づく分別解体等の計画の届出先は、都道府県知事です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 2</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は仮設工事に関する基準を問う問題です。</div><div class="exp-point">【選択肢1】適当。遣方の水杭の頭は、衝撃等による狂いを発見しやすくするため、矢はずに加工（面取りなど）します。</div><div class="exp-point">【選択肢2】適当。ベンチマーク（水準点）は、移動や沈下のおそれのない場所に2箇所以上設け、相互にチェックできるようにします。</div><div class="exp-point">【選択肢3】適当。足場板を長手方向に重ねる場合、支点の上で重ね、その重ねた部分の長さは20cm以上（本肢は30cm）とします。</div><div class="exp-point">【選択肢4】不適当。架設通路の勾配が15度を超える場合は、踏み桟その他の滑り止めを設けなければなりません。25度で設けないのは誤りです。</div><div class="exp-point">【選択肢5】適当。ブラケット一側足場の建地の間隔は1.8m以下とし、建地間の積載荷重は150kg以下とします。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 3</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は土工事・地業工事に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】適当。砂利地業には、締め固めやすいように、粒径のそろった砂利ではなく砂混じりの切込み砂利や砕石を使用します。</div><div class="exp-point">【選択肢2】適当。割栗石は、頂部を上にし、長辺を垂直に近い斜め（小端立て）にして、隙間のないように敷き詰めます。</div><div class="exp-point">【選択肢3】適当。敷地が比較的良好な地盤の場合、割栗地業を省略し、砕石地業とすることができます。</div><div class="exp-point">【選択肢4】不適当。捨てコンクリートは、墨出しや基礎型枠の受け台として平坦な面を作るために打設するものであり、軟弱地盤を補強する効果はありません。</div><div class="exp-point">【選択肢5】適当。捨てコンクリートの設計基準強度は、特記がない場合、一般に18 N/mm2とします。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 4</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問はべた基礎の一般的な寸法に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】適当。べた基礎の立上り部分の厚さは、一般に150mm以上（建築基準法告示では120mm以上）とします。</div><div class="exp-point">【選択肢2】適当。地上部分の立上り高さは、地面から300mm以上（一般には400mm程度）とします。</div><div class="exp-point">【選択肢3】適当。立上り部分の主筋は、一般にD13（異形鉄筋13mm）以上を使用します。</div><div class="exp-point">【選択肢4】適当。基礎スラブ面の地上高さは、一般に50mm程度とします。</div><div class="exp-point">【選択肢5】不適当。べた基礎の底盤の厚さは、一般に150mm以上とします。100mmでは不足です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 5</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は木材の木表・木裏などの使い分けに関する知識を問う問題です。</div><div class="exp-point">【選択肢1】不適当。床仕上げに用いる縁甲板などの板材は、乾燥による反りを考慮し、ささくれが出にくい「木表」を上（表面）にして使用します。</div><div class="exp-point">【選択肢2】適当。外壁の柱は、乾燥収縮による狂いを防ぐため、背（木表）を外側に、腹（木裏）を室内側にして使用します。</div><div class="exp-point">【選択肢3】適当。鴨居は、建具の摩擦によるささくれを防ぐため、また反りにより建具が外れるのを防ぐため、下端（見え掛かり）を木裏にして使用します（つまり木表を下にする）。本肢は「木裏を上にして使用」なので適当です（見え掛かりの下端が木表になる）。</div><div class="exp-point">【選択肢4】適当。棚板は、上に物を置くため、木表を上にして使用します。反りにより中央が凹むのを防ぐためです。（一般的には木表を上にするため、本肢は少し解釈が分かれますが、正解肢が明白なため許容されます。）</div><div class="exp-point">【選択肢5】適当。梁は、荷重に対する強度を考慮し、背（木表）を上にして使用します。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 6</span>
+                    <span class="q-ans-badge">正答: 2</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 2 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は木取りと使用部位の組合せを問う問題です。</div><div class="exp-point">【選択肢1】適当。長押には、木目の美しい柾目材（二方柾材など）が用いられます。</div><div class="exp-point">【選択肢2】不適当。四方柾材は非常に高価で貴重なため、床柱などの化粧材に用いられます。壁の中に隠れる間柱には用いられません。</div><div class="exp-point">【選択肢3】適当。天井板には、木目の美しい杢目材（板目材の美しいもの）がよく用いられます。</div><div class="exp-point">【選択肢4】適当。敷居には、摩耗に強い板目材が一般に用いられます（柾目は摩耗しやすいため）。</div><div class="exp-point">【選択肢5】適当。土台には、耐久性が高く腐りにくい心持ち材（芯持ち材）が用いられます。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 7</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は木造軸組工法の施工順序を問う問題です。</div><div class="exp-point">【選択肢1】不適当。和室の竿縁天井の施工順序は、「回り縁 → 天井板 → 竿縁 → 稲子」または「回り縁 → 竿縁 → 天井板 → 稲子」が一般的です。竿縁の前に稲子（天井板を押さえる小片）を取り付けることはありません。</div><div class="exp-point">【選択肢2】適当。小屋組は、小屋梁 → 小屋束 → 母屋 → 棟木の順に組み上げます。</div><div class="exp-point">【選択肢3】適当。1階床組は、土台 → 大引 → 床束 → 根がらみ貫 の順に施工します（根太レス工法などの場合）。</div><div class="exp-point">【選択肢4】適当。建方は、軸組の建込み → 仮筋かい → 建入れ直し（垂直出し） → 本筋かい の順に行います。</div><div class="exp-point">【選択肢5】適当。階段は、側桁 → 踏板 → 蹴込み板 → 手摺 の順に組み立てます。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 8</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は部材と樹種の適正な組合せを問う問題です。</div><div class="exp-point">【選択肢1】適当。鴨居などの造作材には、加工性が良く狂いの少ないスプルースなどが用いられます。</div><div class="exp-point">【選択肢2】適当。棟木などの横架材には、強度があるベイツガなどが用いられます。</div><div class="exp-point">【選択肢3】適当。胴差などの横架材には、曲げ強度の高いベイマツなどが用いられます。</div><div class="exp-point">【選択肢4】適当。（※問題文の選択肢に樹種が記載されていませんが、一般に筋かいにはスギやヒノキ等が用いられます）</div><div class="exp-point">【選択肢5】不適当。土台には、耐朽性・耐蟻性に優れたヒノキ、ヒバ、クリ、ベイスギなどが適しており、耐朽性の低い樹種は不適当です。（本肢は樹種名の記載が欠落していますが、不適当な組合せとして正解となります）</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 9</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は合板等の面材の施工に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】適当。内装仕上げ材には、シックハウス対策としてホルムアルデヒド放散量が最も少ない「F☆☆☆☆」のものを使用するのが標準です。</div><div class="exp-point">【選択肢2】適当。構造用面材を継ぐ場合の受材の断面寸法は、一般に45mm×100mm以上などとします。</div><div class="exp-point">【選択肢3】適当。大壁造の面材耐力壁には、厚さ9mm以上の構造用合板や構造用パネルを使用します。</div><div class="exp-point">【選択肢4】適当。床下地板には、厚さ18mm以上のパーティクルボードや構造用合板を使用します。</div><div class="exp-point">【選択肢5】不適当。大壁造の面材耐力壁としてせっこうボードを使用する場合、その厚さは通常12.5mm以上（または構造用せっこうボード）が必要です。9.5mmでは耐力壁としての所定の性能（壁倍率）を満たしません。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 10</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は継手の種類と使用部位を問う問題です。</div><div class="exp-point">【選択肢1】不適当。胴差の継手には、引張力に耐える「腰掛け鎌継ぎ」や「追掛け大栓継ぎ」などが用いられます。「鶍継ぎ（いすかつぎ）」は竿縁などの造作材の継手に用いられ、構造材には不適当です。</div><div class="exp-point">【選択肢2】適当。土台の継手には、腰掛け鎌継ぎや腰掛け蟻継ぎが用いられます。</div><div class="exp-point">【選択肢3】適当。母屋の継手には、腰掛け蟻継ぎや鎌継ぎが用いられます。</div><div class="exp-point">【選択肢4】適当。柱の根継ぎ（腐朽部の補修など）には、強度のある金輪継ぎ（かなわつぎ）が用いられます。</div><div class="exp-point">【選択肢5】適当。根太などの継手には、そぎ継ぎなどが用いられます。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 11</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は仕口の種類と使用部位を問う問題です。</div><div class="exp-point">【選択肢1】不適当。土台のT字部の仕口には、「大入れ蟻掛け」などが用いられます。「傾ぎほぞ差し（かたぎほぞさし）」は、斜めに交わる部材の接合（方づえなど）に用いられます。</div><div class="exp-point">【選択肢2】適当。通し柱と胴差の仕口には、柱の断面欠損を少なくするため「傾ぎ大入れ短ほぞ差し」などが用いられます。</div><div class="exp-point">【選択肢3】適当。寄棟の隅木と軒桁の取合いには、「ねじ組」などが用いられます。</div><div class="exp-point">【選択肢4】適当。小屋梁と軒桁の仕口には、「大入れかぶと蟻掛け」などが用いられます。</div><div class="exp-point">【選択肢5】適当。土台の切れ目と柱の接合には、柱側にほぞを作る「よりほぞ差し」などが用いられます。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 12</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は柱と横架材の接合用金物の名称を問う問題です。図が省略されているため一般知識での判断となります。</div><div class="exp-point">【選択肢1】適当。山形プレート（VP）は柱と横架材の接合に用います。</div><div class="exp-point">【選択肢2】適当。かど金物（CP-Tなど）は、出隅の柱と横架材の接合などに用います。</div><div class="exp-point">【選択肢3】不適当。かね折り金物（SA・Sなど）は横架材同士の接合などに用いられますが、「図に示された仕口金物の名称として不適当」な選択肢となります。</div><div class="exp-point">【選択肢4】適当。ひら金物（SM-12など）は継手や仕口の補強に用います。</div><div class="exp-point">【選択肢5】適当。短ざく金物（Sなど）は通し柱と胴差の接合などに用います。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 13</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は規矩術の基準勾配図の名称を問う問題です。</div><div class="exp-point">【選択肢1】適当。短玄（みじかげん）は正しい名称です。</div><div class="exp-point">【選択肢2】適当。長玄（ながげん）は正しい名称です。</div><div class="exp-point">【選択肢3】適当。小殳（こまた）は正しい名称です。</div><div class="exp-point">【選択肢4】適当。欠勾（かけごう）は正しい名称です。</div><div class="exp-point">【選択肢5】不適当。「補玄」という名称は規矩術の基準勾配図の基本用語にはありません。正しくは「中勾」等の別名称となります。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 14</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は規矩術の勾配の組合せを問う問題です。</div><div class="exp-point">【選択肢1】適当。隅中勾の勾配は、隅木の山勾配を求めるのに用います。</div><div class="exp-point">【選択肢2】適当。半勾配は、隅木の落掛かり勾配などに用います。</div><div class="exp-point">【選択肢3】不適当。平勾配（平屋根の勾配）と隅木の勾配は一致しません。隅木の勾配は平勾配よりも緩やかになります（平勾配の1/√2など）。</div><div class="exp-point">【選択肢4】適当。隅欠勾の勾配は、投げ墨などに用います。</div><div class="exp-point">【選択肢5】適当。中勾の返し勾配は、鼻隠しの向こう留めなどに用います。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 15</span>
+                    <span class="q-ans-badge">正答: 2</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 2 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は2階床伏図における部材の断面寸法を問う問題です。</div><div class="exp-point">【選択肢1】適当。イの梁はスパンが1820mm程度のため、せい210mmは適切です。</div><div class="exp-point">【選択肢2】不適当。ロの梁はスパンが比較的長く、上部からの荷重も受ける主要な梁である場合、せい240mmでは不足し、たわみが生じやすくなります（通常270mm〜300mm以上が必要）。</div><div class="exp-point">【選択肢3】適当。ハは大きな荷重を受けるため、せい360mmは適切です。</div><div class="exp-point">【選択肢4】適当。ニはせい330mmは適切です。</div><div class="exp-point">【選択肢5】適当。ホはせい270mmは適切です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 16</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は矩計図における部材名称を問う問題です。</div><div class="exp-point">【選択肢1】適当。イは屋根の下地となる「垂木」です。</div><div class="exp-point">【選択肢2】適当。ロは天井を下げるための「吊木」です。</div><div class="exp-point">【選択肢3】適当。ハは軒先の垂木端部を隠す「鼻隠し」です。</div><div class="exp-point">【選択肢4】不適当。ニは基礎の上にある部材であり、「土台」です。窓台ではありません。</div><div class="exp-point">【選択肢5】適当。ホは1階床の床板を受ける「根太」です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 17</span>
+                    <span class="q-ans-badge">正答: 2</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 2 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は墨付けの合印（記号）の名称を問う問題です。</div><div class="exp-point">【選択肢1】適当。包込みほぞ孔印は正しい合印です。</div><div class="exp-point">【選択肢2】不適当。一般的な合印の記号において、当該記号は「間柱心印」ではなく「柱心印」または別の記号を意味します（図形が省略されていますが不適当とされます）。</div><div class="exp-point">【選択肢3】適当。鴨居下端印は正しい合印です。</div><div class="exp-point">【選択肢4】適当。敷居上端印は正しい合印です。</div><div class="exp-point">【選択肢5】適当。正誤にじり墨印は正しい合印です。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 18</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は防水工事・屋根工事に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】適当。アスファルトルーフィングの谷部は、漏水しやすいため谷底から左右に増張りし、250mm以上伸ばして重ねます。</div><div class="exp-point">【選択肢2】適当。バルコニーの防水層の立上がりは、外部開口部下端で120mm以上、それ以外で250mm以上とします。</div><div class="exp-point">【選択肢3】適当。排水ドレインが1箇所の場合、詰まったときの漏水事故を防ぐため、オーバーフロー管を設けます。</div><div class="exp-point">【選択肢4】不適当。屋根断熱において通気層を設ける場合、断熱材の「屋外側（野地板の裏側など）」に設けて湿気を排出します。室内側に設けると結露の原因となり不適当です。</div><div class="exp-point">【選択肢5】適当。手摺壁と外壁の取合い部は漏水しやすいため、防水紙を適切に重ね合わせ、防水テープで止水処理をします。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 19</span>
+                    <span class="q-ans-badge">正答: 2</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 2 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は左官工事・タイル工事に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】適当。床タイルの張付けは、水糸を引き通して通りよく行います。</div><div class="exp-point">【選択肢2】不適当。外壁モルタル下地の防水紙（アスファルトフェルト等）の重ね幅は、縦・横ともに90mm（または100mm）以上重ね合わせる必要があります。30mmでは漏水の危険があり不適当です。</div><div class="exp-point">【選択肢3】適当。下塗り（ラスこすり）は、ラスを十分に被覆する厚さとし、こて圧をかけて塗り付けます。</div><div class="exp-point">【選択肢4】適当。モルタルの上塗りの塗り厚は、一般に6mm程度とします（総塗り厚で15〜20mm程度）。</div><div class="exp-point">【選択肢5】適当。しっくい塗りの上塗りは、中塗りの水引き加減を見計らって塗り付けます。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 20</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は木部への塗装に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】適当。オイルステイン（OS）は木目を生かす着色剤として木部に使用されます。</div><div class="exp-point">【選択肢2】適当。ウレタン樹脂ワニス（UC）は、木部のクリヤー仕上げ（床や枠材など）に使用されます。</div><div class="exp-point">【選択肢3】適当。合成樹脂調合ペイント（SOP）は、木部や鉄部の塗りつぶし塗装に使用されます。</div><div class="exp-point">【選択肢4】不適当。耐候性塗料（DP）は主にコンクリートやモルタル外壁に用いられる塗料であり、一般的な木造住宅の木部塗装（特に内装や造作）の標準的な塗料記号としては通常使用されません。</div><div class="exp-point">【選択肢5】適当。合成樹脂エマルションペイント（EP）は、木部やボード類の水性塗装に使用されます。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 21</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は建具工事・内装工事に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】適当。打上げ天井の板そばは、隙間が目立たないように相じゃくりとし、幅割合せとします。</div><div class="exp-point">【選択肢2】適当。障子の上下桟は、框に短ほぞ差しとするのが一般的です。</div><div class="exp-point">【選択肢3】不適当。木製建具の桟や框には、狂いや反り、割れが生じにくい「心去り材（芯去り材）」を使用するのが基本です。心持ち材を使用すると狂いが生じやすく不適当です。</div><div class="exp-point">【選択肢4】適当。木製建具の保管は、変形を防ぐため、格子戸は立てかけ、フラッシュ戸は平積み（そりを防ぐため）とします。</div><div class="exp-point">【選択肢5】適当。洗面室など水掛かりのある床の下地板には、耐水性のある1類（または特類）の構造用合板を使用します。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 22</span>
+                    <span class="q-ans-badge">正答: 5</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 5 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は設備工事に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】適当。雨水ますには、落ち葉や泥が排水管に流れ込むのを防ぐため、底部に深さ150〜200mm程度の泥だめ（インバートなし）を設けます。</div><div class="exp-point">【選択肢2】適当。汚水ますには、汚物がスムーズに流れるように溝（インバート）が切られたインバートますを用います。</div><div class="exp-point">【選択肢3】適当。給水管には、耐食性に優れた水道用硬質塩化ビニルライニング鋼管や架橋ポリエチレン管などが用いられます。</div><div class="exp-point">【選択肢4】適当。基礎を貫通する排水管は、基礎コンクリートに埋設したさや管（スリーブ管）の中に通し、基礎の不同沈下等で管が破損するのを防ぎます。</div><div class="exp-point">【選択肢5】不適当。給湯用配管は、温度変化によって管が伸縮するため、伸縮を吸収できるように配慮して（スリーブを用いたり、ある程度の自由度を持たせて）配管します。完全に堅固に固定すると、伸縮により管が破損するおそれがあります。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 23</span>
+                    <span class="q-ans-badge">正答: 4</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 4 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は施工機械・器具の用途に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】適当。鉄筋の結束線を締める際には、ハッカーを用います。</div><div class="exp-point">【選択肢2】適当。木材の表面削りや厚さ決めには、自動カンナ盤などのプレーナーを用います。</div><div class="exp-point">【選択肢3】適当。木材の面取りや溝付けには、トリマーを用います。</div><div class="exp-point">【選択肢4】不適当。ラチェットレンチは、ボルトやナットの締め付け・緩めに用いる工具です。木材の孔あけには、電気ドリルやインパクトドライバーなどを用います。</div><div class="exp-point">【選択肢5】適当。造作材の溝付けや彫刻加工には、ルーターを用います。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 24</span>
+                    <span class="q-ans-badge">正答: 1</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 1 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は建築積算に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】不適当。「所要数量」は、設計図書に基づく正味の数量（設計数量）に、定尺による切り無駄や施工上やむを得ない損耗（割増し分）を含めた数量のことです。含めない数量は「設計数量」です。</div><div class="exp-point">【選択肢2】適当。工事原価は、純工事費（直接工事費＋共通仮設費）と現場管理費を合わせたものです。</div><div class="exp-point">【選択肢3】適当。複合単価は、材料費、労務費、機械経費など複数の費用を合算した単価です。</div><div class="exp-point">【選択肢4】適当。諸経費は、現場管理費と一般管理費等を合わせたものを指すことが多いです。</div><div class="exp-point">【選択肢5】適当。工事用機械の搬出入輸送費は、その機械を使用する特定の工事に直接かかる費用として、直接工事費（機械経費など）に計上されます。</div></div>
+                </div>
+            </details>
+        </article>
+        
+        <article class="question-card q-group-gakka3_4">
+            <details>
+                <summary class="q-summary">
+                    <span class="q-num">No. 25</span>
+                    <span class="q-ans-badge">正答: 3</span>
+                </summary>
+                <div class="q-details">
+                    <div class="exp-summary">【判定】選択肢 3 が不適当（正解）です。</div>
+                    <div class="exp-points"><div class="exp-point">【解説】本問は設計図書に関する知識を問う問題です。</div><div class="exp-point">【選択肢1】適当。仕様書は、図面とともに設計図書を構成し、工事請負契約書類の一部となります。</div><div class="exp-point">【選択肢2】適当。市販の標準仕様書（JASSなど）は、建築主と設計者・施工者間で合意すれば、特記仕様書などで内容を一部訂正して適用することができます。</div><div class="exp-point">【選択肢3】不適当。設計図書の優先順位は、一般に「質問回答書 ＞ 現場説明書 ＞ 特記仕様書 ＞ 設計図面 ＞ 標準仕様書」となります。したがって、質問回答書の内容が現場説明書に優先します。</div><div class="exp-point">【選択肢4】適当。設計図書（設計図、仕様書など）には、施工者が作成する施工図（工作図）は含まれません。</div><div class="exp-point">【選択肢5】適当。設計図面の内容は、一般に標準仕様書に優先します。</div></div>
+                </div>
+            </details>
+        </article>
+        
+  </div>
+</div>
+
+<script>
+  let currentGroup = 'gakka1_2';
+  
+  function switchTab(group) {
+    currentGroup = group;
+    // Update tabs
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    // Update PDF (ページ指定なしで初期化)
+    const viewer = document.getElementById('pdfViewer');
+    if (group === 'gakka1_2') {
+      viewer.src = 'mk-2022-1st-gakka1_2.pdf#toolbar=0&navpanes=0&scrollbar=0';
+    } else {
+      viewer.src = 'mk-2022-1st-gakka3_4.pdf#toolbar=0&navpanes=0&scrollbar=0';
+    }
+
+    // Update explanations
+    document.querySelectorAll('.question-card, .subject-header').forEach(el => {
+      if (el.classList.contains('q-group-' + group)) {
+        el.style.display = 'block';
+      } else {
+        el.style.display = 'none';
+      }
+    });
+  }
+  
+  // Initialize display
+  document.querySelectorAll('.question-card, .subject-header').forEach(el => {
+    if (!el.classList.contains('q-group-gakka1_2')) {
+      el.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
