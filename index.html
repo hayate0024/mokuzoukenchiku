@@ -53,6 +53,43 @@
     font-size: 1.05rem;
   }
 
+  .bible-banner {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(52, 211, 153, 0.2));
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .bible-banner:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
+  }
+  .bible-banner-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #38bdf8;
+  }
+  .bible-banner-desc {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    margin-top: 0.2rem;
+  }
+  .bible-banner-btn {
+    background: #38bdf8;
+    color: #0f172a;
+    font-weight: 800;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -120,6 +157,14 @@
     <h1>木造建築士過去問 10年分</h1>
     <p class="subtitle">2016年〜2025年 学科Ⅰ・Ⅱ・Ⅲ・Ⅳ 全問題・正解と解説＋法改正注記ポータル</p>
   </header>
+
+  <a href="bible_full.html" class="bible-banner">
+    <div>
+      <div class="bible-banner-title">🎓 2026年 木造建築士 【完全網羅版】10年分テーマ別バイブル</div>
+      <div class="bible-banner-desc">全1,000問の正解・不正解ロジックを徹底的に重複排除し、最も効率よく網羅学習できる最強のテキスト</div>
+    </div>
+    <div class="bible-banner-btn">テキストを読む →</div>
+  </a>
 
   <div class="grid">
     <a href="2025.html" class="year-card">
